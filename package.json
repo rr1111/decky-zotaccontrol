@@ -1,7 +1,7 @@
 {
-  "name": "decky-plugin-template",
+  "name": "decky-zotaccontrol",
   "version": "0.0.1",
-  "description": "A template to quickly create decky plugins from scratch, based on TypeScript and webpack",
+  "description": "A Decky Plugin vor controlling various hardware feature of the Zotac Gaming Zone Gaming Handheld.",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
@@ -10,25 +10,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SteamDeckHomebrew/decky-plugin-template.git"
+    "url": "git+https://github.com/rr1111/decky-zotaccontrol.git"
   },
   "keywords": [
-    "decky",
+    "zotac",
     "plugin",
-    "plugin-template",
-    "steam-deck",
-    "deck"
+    "hardware",
+    ""
   ],
-  "author": "You <you@you.tld>",
+  "author": "rr1111 (rene@rinnerworks.com)",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/SteamDeckHomebrew/decky-plugin-template/issues"
+    "url": "https://github.com/rr1111/decky-zotaccontrol/issues"
   },
-  "homepage": "https://github.com/SteamDeckHomebrew/decky-plugin-template#readme",
+  "homepage": "https://github.com/rr1111/decky-zotaccontrol#readme",
   "devDependencies": {
     "@decky/rollup": "^1.0.2",
-    "@decky/ui": "^4.11.0",
-    "@rollup/rollup-linux-x64-musl": "^4.53.3",
+    "@decky/ui": "^4.11.1",
     "@types/react": "19.1.1",
     "@types/react-dom": "19.1.1",
     "@types/webpack": "^5.28.5",
