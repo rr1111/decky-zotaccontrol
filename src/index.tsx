@@ -3,7 +3,7 @@ import {
   PanelSection,
   PanelSectionRow,
   Navigation,
-  staticClasses
+  staticClasses,
 } from "@decky/ui";
 import {
   addEventListener,
@@ -14,9 +14,7 @@ import {
   // routerHook
 } from "@decky/api"
 import { useState } from "react";
-import { FaShip } from "react-icons/fa";
-
-// import logo from "../assets/logo.png";
+import { FaGamepad } from "react-icons/fa";
 
 // This function calls the python function "add", which takes in two numbers and returns their sum (as a number)
 // Note the type annotations:
@@ -27,6 +25,15 @@ const add = callable<[first: number, second: number], number>("add");
 // This function calls the python function "start_timer", which takes in no arguments and returns nothing.
 // It starts a (python) timer which eventually emits the event 'timer_event'
 const startTimer = callable<[], void>("start_timer");
+
+const presets = ["red", "green", "blue", "white", "orange"] as const;
+
+const setRgbPreset = callable<[name: string], string>("set_rgb_preset");
+
+const onSetPreset = async (name: string) => {
+  await setRgbPreset(name);
+};
+
 
 function Content() {
   const [result, setResult] = useState<number | undefined>();
@@ -49,19 +56,14 @@ function Content() {
       <PanelSectionRow>
         <ButtonItem
           layout="below"
+          disabled
           onClick={() => startTimer()}
         >
           {"Start Python timer"}
         </ButtonItem>
       </PanelSectionRow>
 
-      {/* <PanelSectionRow>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <img src={logo} />
-        </div>
-      </PanelSectionRow> */}
-
-      {/*<PanelSectionRow>
+      <PanelSectionRow>
         <ButtonItem
           layout="below"
           onClick={() => {
@@ -71,8 +73,21 @@ function Content() {
         >
           Router
         </ButtonItem>
-      </PanelSectionRow>*/}
+      </PanelSectionRow>
+
+      {presets.map(preset => (
+        <PanelSectionRow key={preset}>
+          <ButtonItem onClick={() => onSetPreset(preset)}>
+            {preset[0].toUpperCase() + preset.slice(1)}
+          </ButtonItem>
+        </PanelSectionRow>
+      ))}
+
     </PanelSection>
+    
+
+
+
   );
 };
 
@@ -98,13 +113,13 @@ export default definePlugin(() => {
 
   return {
     // The name shown in various decky menus
-    name: "Test Plugin",
+    name: "ZotacControl",
     // The element displayed at the top of your plugin's menu
-    titleView: <div className={staticClasses.Title}>Decky Example Plugin</div>,
+    titleView: <div className={staticClasses.Title}>ZotacControl</div>,
     // The content of your plugin's menu
     content: <Content />,
     // The icon displayed in the plugin list
-    icon: <FaShip />,
+    icon: <FaGamepad />,
     // The function triggered when your plugin unloads
     onDismount() {
       console.log("Unloading")

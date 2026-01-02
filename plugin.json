@@ -1,11 +1,11 @@
 {
-  "name": "Zotac Control",
+  "name": "ZotacControl",
   "author": "rr1111",
   "flags": ["debug", "_root"],
   "api_version": 1,
   "publish": {
     "tags": ["template", "root"],
-    "description": "A Decky Plugin vor controlling various hardware feature of the Zotac Gaming Zone Gaming Handheld.",
+    "description": "A Decky Plugin for controlling various hardware feature of the Zotac Gaming Zone Gaming Handheld.",
     "image": "https://opengraph.githubassets.com/1/SteamDeckHomebrew/PluginLoader"
   }
 }
