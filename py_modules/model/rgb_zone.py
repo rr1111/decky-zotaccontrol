@@ -109,8 +109,8 @@ class RgbZone:
     self.set_brightness(brightness)
 
   # write local brightness to hardware
-  def write_brightness(self) -> None:
-    self.brightness_path.write_text(self.brightness)
+  def write_led_brightness(self) -> None:
+    self.brightness_path.write_text(str(self.brightness))
 
 
   # get hardware values

@@ -3,11 +3,13 @@ import os
 import decky
 from settings import SettingsManager
 from typing import TypeVar
-from py_modules import hardware
+from py_modules import ledController
 
 
 Initialized = False
 T = TypeVar("T")
+
+
 
 
 def log(txt):
